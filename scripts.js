@@ -32,4 +32,25 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     });
+
+    // Custom Cursor
+    const cursor = document.querySelector('.custom-cursor');
+
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.left = `${e.clientX}px`;
+        cursor.style.top = `${e.clientY}px`;
+    });
+
+    document.querySelectorAll('a, button, input, textarea').forEach(element => {
+        element.addEventListener('mouseover', () => {
+            cursor.style.width = '40px';
+            cursor.style.height = '40px';
+            cursor.style.backgroundColor = 'rgba(0, 115, 230, 0.2)';
+        });
+        element.addEventListener('mouseout', () => {
+            cursor.style.width = '20px';
+            cursor.style.height = '20px';
+            cursor.style.backgroundColor = 'transparent';
+        });
+    });
 });
